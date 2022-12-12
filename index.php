@@ -16,13 +16,11 @@ require __DIR__ . '/models/Accessory.php';
 $products = [
   new Food(new Category('Cat', '<i class="fa-solid fa-cat"></i>'), 'whiskas pranzetti', 'whiskas', 10, true, 'https://m.media-amazon.com/images/I/71CSgd7hkML._AC_SY450_PIbundle-12,TopRight,0,0_SH20_.jpg', 'vegetables', 2, 'adult'),
 
-  new Toy(new Category('Dog', '<i class="fa-solid fa-dog"></i>'), 'Osso giocattolo', 'pet & pet', 5, false, 'https://m.media-amazon.com/images/I/71Of7YEuSJL._AC_SY355_.jpg', '20cm', 'orange', 'plastic'),
+  new Toy(new Category('Dog', '<i class="fa-solid fa-dog"></i>'), 'Osso giocattolo', 'pet & pet', 5, false, null, '20cm', 'orange', 'plastic'),
 
   new Accessory(new Category('Dog', '<i class="fa-solid fa-dog"></i>'), 'Guinzaglio', 'Alldog', 20, true, 'https://www.toscani.store/wp-content/uploads/2020/08/guinzaglio-cane-150cm-nero-dark-toscani-store.jpeg', true)
 
 ];
-
-var_dump($products);
 
 ?>
 
@@ -39,7 +37,26 @@ var_dump($products);
 </head>
 
 <body>
-
+  <header class="bg-dark text-white text-center h-100">
+    <h1>Animals Word</h1>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <?php foreach ($products as $product) : ?>
+          <div class="card" style="width: 18rem;">
+            <h3><?php echo $product->category->animal->icon ?></h3>
+            <img src="<?php $product->getImg() ?>" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $product->name ?></h5>
+              <h5 class="card-title"><?php echo $product->brand ?></h5>
+              <h5 class="card-title">&euro; <?php echo $product->price ?></h5>
+            </div>
+          </div>
+        <?php endforeach ?>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
