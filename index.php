@@ -41,7 +41,7 @@ $products = [
 
 <body>
   <header class="bg-dark text-white text-center h-100">
-    <h1>Animals Word</h1>
+    <h1>Animals World</h1>
   </header>
   <main>
     <div class="container">
