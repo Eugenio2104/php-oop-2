@@ -45,9 +45,9 @@ $products = [
   </header>
   <main>
     <div class="container">
-      <div class="row">
+      <div class="row d-flex justify-content-between my-4">
         <?php foreach ($products as $product) : ?>
-          <div class="card" style="width: 18rem;">
+          <div class="card text-center" style="width: 18rem;">
             <h3><?php echo $product->category->animal ?> <span><?php echo $product->category->icon ?></span></h3>
             <img src="<?php $product->getImg() ?>" class="card-img-top" alt="">
             <div class="card-body">
