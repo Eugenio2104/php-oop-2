@@ -13,12 +13,15 @@ require __DIR__ . '/models/Toy.php';
 require __DIR__ . '/models/Accessory.php';
 
 
+$catCategory = new Category('Cat', '<i class="fa-solid fa-cat"></i>');
+$dogCategory = new Category('Dog', '<i class="fa-solid fa-dog"></i>');
+
 $products = [
-  new Food(new Category('Cat', '<i class="fa-solid fa-cat"></i>'), 'whiskas pranzetti', 'whiskas', 10, true, 'https://m.media-amazon.com/images/I/71CSgd7hkML._AC_SY450_PIbundle-12,TopRight,0,0_SH20_.jpg', 'vegetables', 2, 'adult'),
+  new Food($catCategory, 'whiskas pranzetti', 'whiskas', 10, true, 'https://m.media-amazon.com/images/I/71CSgd7hkML._AC_SY450_PIbundle-12,TopRight,0,0_SH20_.jpg', 'vegetables', 2, 'adult'),
 
-  new Toy(new Category('Dog', '<i class="fa-solid fa-dog"></i>'), 'Osso giocattolo', 'pet & pet', 5, false, null, '20cm', 'orange', 'plastic'),
+  new Toy($dogCategory, 'Osso giocattolo', 'pet & pet', 5, false, null, '20cm', 'orange', 'plastic'),
 
-  new Accessory(new Category('Dog', '<i class="fa-solid fa-dog"></i>'), 'Guinzaglio', 'Alldog', 20, true, 'https://www.toscani.store/wp-content/uploads/2020/08/guinzaglio-cane-150cm-nero-dark-toscani-store.jpeg', true)
+  new Accessory($dogCategory, 'Guinzaglio', 'Alldog', 20, true, 'https://www.toscani.store/wp-content/uploads/2020/08/guinzaglio-cane-150cm-nero-dark-toscani-store.jpeg', true)
 
 ];
 
@@ -45,7 +48,7 @@ $products = [
       <div class="row">
         <?php foreach ($products as $product) : ?>
           <div class="card" style="width: 18rem;">
-            <h3><?php echo $product->category->animal->icon ?></h3>
+            <h3><?php echo $product->category->animal ?> <span><?php echo $product->category->icon ?></span></h3>
             <img src="<?php $product->getImg() ?>" class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title"><?php echo $product->name ?></h5>
