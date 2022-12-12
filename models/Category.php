@@ -2,12 +2,12 @@
 
 class Category
 {
-  public $name;
+  public $animal;
   public $icon;
 
-  public function __construct($_name, $_icon)
+  public function __construct($_animal, $_icon)
   {
-    $this->animal = $_name;
+    $this->animal = $_animal;
     $this->icon = $_icon;
   }
 }

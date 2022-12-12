@@ -13,6 +13,6 @@ require __DIR__ . '/models/Toy.php';
 require __DIR__ . '/models/Accessory.php';
 
 
-$cuccia = new Product(new Category('Cane', 'icon'), 'pets & pets', 25, true, 'image');
+$cuccia = new Accessory(new Category('Cuccia per cani'))
 
 var_dump($cuccia);
